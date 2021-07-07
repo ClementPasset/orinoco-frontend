@@ -1,0 +1,20 @@
+.error{
+    &Title{
+        background-color: rgba(228, 140, 140,.6);
+        border: 1px solid rgba(228,140,140,1);
+        border-bottom: unset;
+        border-radius: 1rem 1rem 0 0;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+    }
+    &Text{
+        background-color: rgba(228, 140, 140,.6);
+        border: 1px solid rgba(228,140,140,1);
+        border-top: unset;
+        border-radius: 0 0 1rem 1rem;
+        text-align: center;
+        padding: 1rem;
+        width: 100%;
+    }
+}

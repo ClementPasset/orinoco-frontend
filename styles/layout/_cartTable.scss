@@ -1,0 +1,53 @@
+.cartTable{
+    width: 80%;
+    border-collapse: collapse;
+    text-align: center;
+    margin: 2rem 0;
+
+    &__emptyCart{
+        cursor: pointer;
+        
+        &:hover{
+            background-color: rgb(138,0,0);
+        }
+    }
+
+    &__head, &__footer{
+        font-weight: bold;
+        letter-spacing: 2px;
+        background-color: #272727;
+        
+        & th, & td{
+            padding: .5rem;
+        }
+    }
+
+    &__row{
+        background-color: #353535;
+        
+        & td{
+            padding: .5rem;
+            &:last-child{
+                background-color: rgb(153, 77, 77);
+                cursor: pointer;
+                border: 1px solid #272727;
+                &:hover{
+                    color:rgb(138, 0, 0);
+                }
+            }
+        }
+
+        &:hover{
+            background-color: #b3b3b3;
+            color: rgb(48, 48, 48);
+        }
+
+        &:nth-child(2n){
+            background-color: #424242;
+            &:hover{
+                background-color: #b3b3b3;
+                color: rgb(48, 48, 48);
+            }
+        }
+    }
+}

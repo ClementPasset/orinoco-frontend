@@ -1,0 +1,12 @@
+.button{
+    width: fit-content;
+    padding: .5rem 2rem;
+    background: linear-gradient(to bottom right, $orange,$violet);
+    border: none;
+    cursor: pointer;
+
+    &:hover{
+        
+    background: linear-gradient(to bottom right, darken($orange,10%),darken($violet,10%));
+    }
+}

@@ -1,0 +1,36 @@
+.alert{
+    display: block;
+    width: 60vw;
+    height: 75px;
+    position: absolute;
+    border-radius: 1rem;
+    padding: 2rem;
+    top: 0px;
+    left: 50%;
+    transform: translate(-50%);
+    font-weight: bold;
+    letter-spacing: 1px;
+    text-align: center;
+    animation: fadeIn .3s ease-in-out forwards, fadeOut 1s 1s ease-in-out forwards;
+
+
+    &--success{
+        background-color: rgb(147, 179, 115);
+    }
+}
+@keyframes fadeOut{
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+@keyframes fadeIn{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

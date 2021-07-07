@@ -1,0 +1,38 @@
+.contactForm{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin:2rem 0;
+
+    & > *{
+        margin: .5rem;
+    }
+
+    &__label{
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+
+    &__input{
+        width: 60%;
+        padding: .5rem;
+        outline: none;
+        border-radius: .3rem;
+
+        &:focus{
+            border: 2px solid rgb(230,139,7);
+        }
+    }
+
+    &__button{
+        width: 50%;
+        padding: 1em;
+        margin-top: 1rem;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+        border-radius: .3rem;
+        background: linear-gradient(to right, rgb(230,139,7),$violet);
+    }
+}
