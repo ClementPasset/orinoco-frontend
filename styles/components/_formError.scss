@@ -17,3 +17,13 @@
         }
     }
 }
+
+@media #{$medium-down}{
+    .formError{
+        width: 100%;
+
+        &__text{
+            padding: .5rem 1rem;
+        }
+    }
+}

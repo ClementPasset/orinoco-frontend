@@ -51,3 +51,32 @@
         }
     }
 }
+
+@media #{$medium-down}{
+    .cartTable{
+        width: 100%;
+    }
+}
+
+@media #{$small-down}{
+    .cartTable{
+
+        &__row{
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        &__head th{
+            writing-mode: vertical-lr;
+            text-orientation:sideways-left;
+            letter-spacing: 1px;
+            font-size: 12px;
+            transform: rotate(.55turn);
+            &:last-child{
+                writing-mode: unset;
+                text-orientation: unset;
+                transform: rotate(0turn);
+            }
+        }
+    }
+}

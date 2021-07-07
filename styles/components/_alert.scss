@@ -1,10 +1,11 @@
 .alert{
-    display: block;
-    width: 60vw;
+    display: flex;
+    place-items: center;
+    width: fit-content;
     height: 75px;
     position: absolute;
     border-radius: 1rem;
-    padding: 2rem;
+    padding: 2rem 4rem;
     top: 0px;
     left: 50%;
     transform: translate(-50%);
@@ -32,5 +33,13 @@
     }
     100%{
         opacity: 1;
+    }
+}
+
+@media #{$medium-down}{
+    .alert{
+        top: 50%;
+        transform: translate(-50% -50%);
+        height: 150px;
     }
 }

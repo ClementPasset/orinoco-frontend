@@ -48,6 +48,7 @@
 
     &__price{
         grid-area: price;
+        text-align: center;
     }
 
     &__priceText{
@@ -69,5 +70,74 @@
         grid-area: quantityLabel;
         width: 100%;
         text-align: center;
+    }
+}
+
+@media #{$large-down}{
+    .product{
+        grid-template-columns:1fr 1fr 1fr;
+        grid-template-rows: 4fr 2fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        'img img img'
+        'title description description'
+        'options options options'
+        'quantityLabel quantitySelect quantitySelect'
+        'price button button';
+        padding: unset;
+
+        &__options, &__quantity, &__btn{
+            width: 80%;
+        }
+        
+
+        &__img{
+            height: 350px;
+            padding: unset;
+            border-radius: 1.5rem 1.5rem 0 0;
+        }
+    }
+}
+
+@media #{$medium-down}{
+    .product{
+        grid-template-columns:1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        'img img img img'
+        'title description description description'
+        'options options options options'
+        'quantityLabel quantitySelect quantitySelect quantitySelect'
+        'price button button button';
+    }
+}
+
+@media #{$small-down}{
+    .product{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: 3fr 1fr 2fr 1fr 1fr 1fr 1fr;
+        grid-template-areas: 
+        'img img img'
+        'title title title'
+        'description description description'
+        'options options options'
+        'quantityLabel quantitySelect quantitySelect'
+        'price price price'
+        'button button button';
+        
+        & *{
+            padding: .5rem;
+        }
+        
+        &__description{
+            text-align: center;
+            padding: 1rem;
+        }
+
+        &__img{
+            height: 200px;
+            padding: unset;
+            border-radius: 1.5rem 1.5rem 0 0;
+            align-self: flex-start;
+        }
+
     }
 }

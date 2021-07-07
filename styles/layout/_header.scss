@@ -55,3 +55,50 @@
         transition: width .1s ease-in-out 0s;
     }
 }
+
+@media #{$medium-down}{
+    .header{
+        grid-template-columns: 2fr 4fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: 'title navigation';
+
+        &__logo{
+            display: none;
+        }
+
+        &__title{
+            grid-area: title;
+        }
+
+        & nav{
+            grid-area: navigation;
+        }
+    }
+}
+
+@media #{$small-down}{
+    .header{
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+        'title'
+        'navigation';
+
+        &__logo{
+            display: none;
+        }
+
+        &__title{
+            grid-area: title;
+        }
+
+        & nav{
+            grid-area: navigation;
+            width: 100%;
+        }
+        &__nav{
+            justify-content: space-around;
+            margin: 1rem 0;
+        }
+    }
+}

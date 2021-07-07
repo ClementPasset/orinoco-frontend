@@ -36,3 +36,22 @@
         background: linear-gradient(to right, rgb(230,139,7),$violet);
     }
 }
+
+@media #{$medium-down}{
+    .contactForm{
+        width: 100%;
+    }
+}
+
+@media #{$small-down}{
+    .contactForm{
+        
+        &__input{
+            width: 100%;
+        }
+
+        &__button{
+            width: 100%;
+        }
+    }
+}
