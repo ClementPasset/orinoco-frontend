@@ -1,6 +1,6 @@
 const main = document.querySelector('.main');
 
-//Met à jour le nombre d'articles du panier (dans la menu de navigation)
+/** Met à jour le nombre d'articles du panier dans le menu de navigation */
 const updateNumberOfItems = () => {
     let htmlNumber = document.querySelector('#items-in-cart');
     let quantity = 0;
@@ -13,7 +13,11 @@ const updateNumberOfItems = () => {
     htmlNumber.innerHTML = quantity;
 };
 
-//Renvoi le contenu du panier
+/**
+ * Renvoie le contenu du panier
+ * 
+ * @returns {Object}
+ */
 const getCart = () => {
     let cart = JSON.parse(localStorage.getItem('cart'));
     return cart === null ? [] : cart;

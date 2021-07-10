@@ -6,10 +6,15 @@ const searchParams = new URL(document.URL).searchParams;
 let price;
 let cart;
 
-//Récupère l'id dans les paramètres get de l'URL
+/** Récupère l'id de l'objet dans les searchParams */
 const getId = () => searchParams.get('id');
 
-//Récupère un item via l'API en passant l'Id récupéré
+/**
+ * Récupère l'élément dont l'id est passé en paramètre via l'API
+ * 
+ * @param {Number} id 
+ * @returns {Promise}
+ */
 const getItem = (id) => {
     return new Promise((resolve, reject) => {
         fetch(address + id)
@@ -22,7 +27,11 @@ const getItem = (id) => {
     });
 }
 
-//affichage d'un message de succès pour l'ajout au panier
+/**
+ * Affiche un message de succès sur l'écran
+ * 
+ * @param {String} text 
+ */
 const successMessage = (text) => {
     msg = document.createElement('div');
     msg.classList.add('alert', 'alert--success');
@@ -33,7 +42,11 @@ const successMessage = (text) => {
     }, 2300);
 }
 
-//Affichage d'un message d'erreur
+/**
+ * Affiche un message d'erreur sur l'écran
+ * 
+ * @param {String} err 
+ */
 const errorMessage = (err) => {
     errorTitle = document.createElement('h2');
     errorTitle.innerHTML = 'Une erreur est survenue.';
@@ -45,13 +58,22 @@ const errorMessage = (err) => {
     main.appendChild(errorText);
 };
 
-//Met à jour le prix affiché sur la page
+/**
+ * Met à jour le prix affiché sur la page
+ * 
+ * @param {Number} quantity 
+ */
 const updatePrice = (quantity) => {
     let span = document.querySelector('.product__priceText');
     span.innerHTML = (quantity * price / 100).toFixed(2).replace('.', ',');
 };
 
-//Affiche les éléments passés en paramètre dans le conteneur fourni en second paramètre
+/**
+ * Affiche l'élément passé en paramètre dans le conteneur passé en paramètre
+ * 
+ * @param {Object} item 
+ * @param {Object} container 
+ */
 const displayItem = (item, container) => {
 
     newImg = document.createElement('img');
@@ -117,7 +139,7 @@ const displayItem = (item, container) => {
     })
 };
 
-//Met à jour le nombre d'articles du panier (dans la menu de navigation)
+/** Met à jour le nombre d'articles du panier dans le menu de navigation */
 const updateNumberOfItems = () => {
     let htmlNumber = document.querySelector('#items-in-cart');
     let quantity = 0;
@@ -130,7 +152,11 @@ const updateNumberOfItems = () => {
     htmlNumber.innerHTML = quantity;
 };
 
-//Ajout d'un objet au panier (localStorage)
+/**
+ * Ajoute un élément dans le panier (localStorage)
+ * 
+ * @param {Object} item 
+ */
 const addToCart = (item) => {
     let cart = getCart();
     let quantityInput = document.querySelector('#quantity');
@@ -165,7 +191,11 @@ const addToCart = (item) => {
     successMessage("Le produit a bien été ajouté au panier");
 };
 
-//Récupération des éléments déjà dans le panier
+/**
+ * Récupère les éléments du panier
+ * 
+ * @returns {Object}
+ */
 const getCart = () => {
     let cart = JSON.parse(localStorage.getItem('cart'));
     return cart === null ? [] : cart;

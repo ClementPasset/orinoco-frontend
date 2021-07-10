@@ -4,20 +4,28 @@ const addressAPI = (location.hostname === 'localhost' || location.hostname === '
     : 'https://melch-so-pekocko.herokuapp.com/api/teddies/order';
 let price;
 
-//Renvoi le contenu du panier
+/**
+ * Récupère le contenu du panier
+ * 
+ * @returns {Object}
+ */
 const getCart = () => {
     let cart = JSON.parse(localStorage.getItem('cart'));
     return cart === null ? [] : cart;
 }
 
-//Met à jour le nombre d'articles du panier (dans la menu de navigation)
+/** Met à jour le nombre d'articles du panier dans le menu de navigation */
 const updateNumberOfItems = () => {
     let htmlNumber = document.querySelector('#items-in-cart');
 
     htmlNumber.innerHTML = getNumberOfItems();
 };
 
-//Retourne le nombre d'objets dans le panier
+/**
+ * Retourne le nombre d'articles dans le panier
+ * 
+ * @returns {Number}
+ */
 const getNumberOfItems = () => {
     let quantity = 0;
     let cart = getCart();
@@ -29,13 +37,17 @@ const getNumberOfItems = () => {
     return quantity;
 };
 
-//Vide le panier
+/** Vide le panier puis recharge la page */
 const emptyCart = () => {
     localStorage.removeItem('cart');
     location.reload();
 };
 
-//Supprimer un objet du panier
+/**
+ * Supprime l'élément passé en paramètre du panier
+ * 
+ * @param {Object} item 
+ */
 const deleteFromCart = (item) => {
     let { _id, color } = item;
     let cart = getCart();
@@ -50,7 +62,11 @@ const deleteFromCart = (item) => {
     updateNumberOfItems();
 };
 
-//Validation du formulaire et envoi des données en POST
+/**
+ * Valide les données du formulaire et envoie la requête POST
+ * 
+ * @param {Object} e 
+ */
 let formValidation = (e) => {
     e.preventDefault();
     let cart = getCart();
@@ -127,7 +143,7 @@ let formValidation = (e) => {
     }
 };
 
-//Affichage du formulaire
+/** Affichage du formulaire */
 let displayForm = () => {
     let form = document.createElement('form');
     form.classList.add('contactForm');
@@ -216,7 +232,7 @@ let displayForm = () => {
     form.appendChild(button);
 };
 
-//Affihage du récapitulatif du panier
+/** Affichage du tableau récapitulatif du panier */
 let displayTable = () => {
     price = 0;
     main.innerHTML = '';

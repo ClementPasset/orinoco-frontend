@@ -3,13 +3,17 @@ const address = (location.hostname === 'localhost' || location.hostname === '127
     ? 'http://localhost:3000/api/teddies/'
     : 'https://melch-so-pekocko.herokuapp.com/api/teddies/';
 
-//Supprime le loader sur la page index
+/** Supprime le loader de la page d'accueil */
 const deleteLoader = () => {
     let loader = document.querySelector('.loader');
     loader.remove();
 };
 
-//Récupère les éléments en appelant l'API et retourne une Promise
+/**
+ * Appelle l'API en GET et retourne une promesse avec les données
+ * 
+ * @returns { Promise }
+ */
 const getItems = () => {
     return new Promise((resolve, reject) => {
         fetch(address)
@@ -19,7 +23,7 @@ const getItems = () => {
     });
 };
 
-//Met à jour le nombre d'articles du panier (dans la menu de navigation)
+/** Met à jour le nombre d'articles du panier dans le menu de navigation */
 const updateNumberOfItems = () => {
     let htmlNumber = document.querySelector('#items-in-cart');
     let quantity = 0;
@@ -32,7 +36,12 @@ const updateNumberOfItems = () => {
     htmlNumber.innerHTML = quantity;
 };
 
-//Affiche une élément dans le container passé en paramètre
+/**
+ * Affiche l'élément passé en paramètre dans le conteneur passé en paramètre
+ * 
+ * @param {*} item 
+ * @param {*} container 
+ */
 const displayItem = (item, container) => {
     newCard = document.createElement('article');
     newCard.classList.add('card');
@@ -65,13 +74,17 @@ const displayItem = (item, container) => {
     container.appendChild(newCard);
 };
 
-//Renvoi le contenu du panier
+/**
+ * Récupère le contenu du panier
+ * 
+ * @returns {Object}
+ */
 const getCart = () => {
     let cart = JSON.parse(localStorage.getItem('cart'));
     return cart === null ? [] : cart;
 }
 
-//Affichage d'un message d'erreur sur la page
+/** Affiche un message d'erreur sur la page */
 const errorMessage = () => {
     errorTitle = document.createElement('h2');
     errorTitle.innerHTML = 'Une erreur est survenue.';
